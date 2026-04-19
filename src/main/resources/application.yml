@@ -5,15 +5,15 @@ spring:
   datasource:
     #1.本机访问
     #url: jdbc:mysql://localhost:3306/tlias
-    #password: 2b2b123123
+    #password: your_password
     #2.Linux部署访问
     #url: jdbc:mysql://192.168.126.128:3306/tlias
-    #password: 2b2b123123
+    #password: your_password
     #3.docker部署
     url: jdbc:mysql://mysql:3306/tlias
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 123
+    password: ${MYSQL_PASSWORD:123}
   servlet:
     multipart:
       #最大单个文件大小
@@ -35,5 +35,5 @@ logging:
 aliyun:
     oss:
       endpoint: https://oss-cn-beijing.aliyuncs.com
-      bucketName: java-ai-selfstudy
+      bucketName: ${OSS_BUCKET_NAME:your_bucket_name}
       region: cn-beijing
